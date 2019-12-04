@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-navigation-drawer absolute temporary v-model="drawer" class="hidden-lg-and-up">
+        <v-navigation-drawer absolute temporary v-model="drawer" class="hidden-md-and-up">
             <v-list>
                 <v-list-tile v-for="(item, i) in menuItems" :key="`mobilemenuitem${i}`" :to="item.route">
                     <v-list-tile-action>
@@ -54,36 +54,36 @@
             menuItems(){
                 return this.isUserAuthenticated ? [
                     {
-                        icon: 'mdi-code-tags',
                         title: 'Примеры',
+                        icon: 'mdi-code-tags',
                         route: '/examples'
                     },
                     {
-                        icon: 'mdi-plus',
                         title: 'Добавить',
+                        icon: 'mdi-plus',
                         route: '/example-add'
                     },
                     {
-                        icon: 'mdi-account-circle-outline',
                         title: 'Профиль',
+                        icon: 'mdi-account-circle-outline',
                         route: '/profile'
                     }
 
                 ] :
                 [
                     {
-                        icon: 'mdi-login',
                         title: 'Войти',
+                        icon: 'mdi-login',
                         route: '/sign-in'
                     },
                     {
-                        icon: 'mdi-lock-open-outline',
                         title: 'Регистрация',
+                        icon: 'mdi-lock-open-outline',
                         route: '/sign-up'
                     },
                     {
-                        icon: 'mdi-code-tags',
                         title: 'Примеры',
+                        icon: 'mdi-code-tags',
                         route: '/example'
                     }
                 ]

@@ -8,6 +8,7 @@
         <v-carousel-item
                 v-for="(slide, i) in slides"
                 :key="i"
+                :src="'https://placeimg.com/400/200/nature?rand=' + Math.random()"
         >
             <v-sheet
                     :color="colors[i]"

@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import SignIn from './views/SignIn.vue'
-import SignUp from './views/SignUp.vue'
+import SignIn from './components/Auth/SignIn.vue'
+import SignUp from './components/Auth/SignUp.vue'
 import Logout from './views/Logout.vue'
 import Profile from './views/Profile.vue'
-import Examples from './views/Examples.vue'
 import ExampleAdd from './views/ExampleAdd.vue'
+import Examples from './views/Examples.vue'
 import Example from './views/Example.vue'
 import Store from './store'
 
@@ -38,7 +38,7 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: Profile,
-      beforeEnter: AuthGuard
+      // beforeEnter: AuthGuard
     },
     {
       path: '/examples',
@@ -47,15 +47,15 @@ export default new Router({
     },
     {
       path: '/example/:id',
+      props: true,
       name: 'example',
-      props: 'true',
       component: Example
     },
     {
       path: '/example-add',
       name: 'example-add',
-      component: ExampleAdd,
-      beforeEnter: AuthGuard
+      component: ExampleAdd
+      // beforeEnter: AuthGuard
     },
     {
       path: '/about',
@@ -68,9 +68,9 @@ export default new Router({
   ],
   mode: 'history'
 })
-function AuthGuard(from, to, next) {
-  if (Store.getters.isUserAuthenticated)
-    next();
-  else
-    next('/sign-in');
-}
+// function AuthGuard(from, to, next) {
+//   if (Store.getters.isUserAuthenticated)
+//     next();
+//   else
+//     next('/sign-in');
+// }

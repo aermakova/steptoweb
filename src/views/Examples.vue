@@ -6,7 +6,7 @@
 
 <script>
     // @ is an alias to /src
-    import ExamplesList from "../components/ExamplesList";
+    import ExamplesList from "../components/Examples/ExamplesList";
 
     export default {
         components: {

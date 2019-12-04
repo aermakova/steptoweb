@@ -9,20 +9,16 @@
 </template>
 
 <script>
-    import ExampleDetails from '../components/ExampleDetails'
+    import ExampleDetails from '../components/Examples/ExampleDetails'
     export default {
         components: {
             ExampleDetails
         },
-        props: {
-            'id': {
-                type: String,
-                required: true
-            }
-        },
+        props: ['id'],
         computed: {
             example() {
-                return this.$store.getters.getExamples.find(b => b.id === this.id);
+                const id = this.id;
+                return this.$store.getters.getExampleId(id);
             }
         }
     }

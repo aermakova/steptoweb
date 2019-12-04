@@ -2,7 +2,7 @@ export default {
     state: {
         examples: [
             {
-                id: 'jkllkjkjk',
+                id: 'kiki',
                 title: 'Simple button',
                 description: 'Simple button with animation',
                 tags: [
@@ -76,5 +76,15 @@ export default {
     },
     getters: {
         getExamples: (state) => state.examples,
+        getExampleId (state) {
+            return ExampleId => {
+                return state.examples.find(example => example.id === ExampleId)
+            }
+        },
+        getPromoExamples (state) {
+            return state.examples.filter(example => {
+                return example.promo
+            })
+        }
     }
 }

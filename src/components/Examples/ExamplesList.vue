@@ -12,6 +12,9 @@
             <v-flex md6 xs6 lg4 v-for="(example) in filteredExamples" :key="example.id">
                 <examples-item :example="example"></examples-item>
             </v-flex>
+<!--            <v-flex md6 xs6 lg4 v-for="(example) in examples" :key="example.id">-->
+<!--                <examples-item :example="example"></examples-item>-->
+<!--            </v-flex>-->
         </v-layout>
     </v-container>
 </template>
@@ -29,7 +32,7 @@
             return{
                 searchTerm: null,
                 technology: [],
-                technologies: ['css', 'html', 'js']
+                technologies: ['css', 'html', 'js'],
             }
         },
         computed: {
@@ -40,12 +43,13 @@
                 let examples = this.examples;
                 if(this.searchTerm){
                     examples = examples.filter(b =>
-                        b.title.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >=0
-                        || b.description.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >=0)
+                        b.title.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >=0 ||
+                        b.description.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >=0)
                 }
-                // if(this.technology.length){
-                //     examples = examples.filter(b => this.technology.filter(val => b.technology.indexOf(val) !== -1).length > 0)
-                // }
+                if(this.technology.length){
+                    examples = examples.filter(b =>
+                        this.technology.filter(val => b.technology.indexOf(val) !== -1).length > 0)
+                }
                 return examples
             }
         },

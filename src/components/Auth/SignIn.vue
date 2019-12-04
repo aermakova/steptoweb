@@ -1,10 +1,10 @@
 <template>
     <v-container fluid fill-height>
         <v-layout align-center justify-center>
-            <v-flex xs12 sm8 md6>
-                <v-card class="elevation-12">
+            <v-flex xs12 sm8 md5>
+                <v-card class="elevation-12" width="100%">
                     <v-toolbar dark color="primary">
-                        <v-toolbar-title>Регистрация</v-toolbar-title>
+                        <v-toolbar-title>Войти</v-toolbar-title>
                     </v-toolbar>
                     <v-card-text>
                         <v-alert
@@ -20,7 +20,7 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="primary" @click.prevent="signUp" :disabled="processing || !valid">Зарегистрироваться</v-btn>
+                        <v-btn color="primary" @click.prevent="signIp" :disabled="processing|| !valid">Войти</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -32,7 +32,7 @@
     // @ is an alias to /src
 
     export default {
-        name: 'sign-up',
+        name: 'sign-in',
         data() {
             return{
                 email: null,
@@ -68,8 +68,8 @@
             }
         },
         methods: {
-            signUp() {
-                this.$store.dispatch('SIGNUP', {email: this.email, password: this.password})
+            signIp() {
+                this.$store.dispatch('SIGNIN', {email: this.email, password: this.password})
             }
         }
     }
